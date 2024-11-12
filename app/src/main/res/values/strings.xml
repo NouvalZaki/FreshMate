@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FreshMate</string>
+    <string name="navigation_title_home">Home</string>
+    <string name="navigation_title_fruit">Fruit</string>
+    <string name="navigation_title_setting">Setting</string>
+    <string name="navigation_title_diagnose">Diagnose</string>
+    <string name="navigation_analyze">Analyze</string>
+</resources>
