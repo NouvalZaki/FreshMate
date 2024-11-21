@@ -48,15 +48,22 @@ class CameraActivity : AppCompatActivity() {
 
     private fun startCamera(){
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            @Suppress("DEPRECATION")
             val preview = Preview.Builder()
+                .setTargetAspectRatio(AspectRatio.RATIO_4_3)
                 .build()
                 .also {
                     it.surfaceProvider = binding.previewView.surfaceProvider
                 }
-            imageCapture = ImageCapture.Builder().build()
+
+
+            @Suppress("DEPRECATION")
+            imageCapture = ImageCapture.Builder()
+                .setTargetAspectRatio(AspectRatio.RATIO_4_3)
+                .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+                .build()
 
             try {
                 cameraProvider.unbindAll()
