@@ -5,4 +5,9 @@
     <string name="navigation_title_setting">Setting</string>
     <string name="navigation_title_diagnose">Diagnose</string>
     <string name="navigation_analyze">Analyze</string>
+    <string name="fruit_list_pict">Image</string>
+    <string name="fruit_name">Fruit Name</string>
+    <string name="description">Description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
