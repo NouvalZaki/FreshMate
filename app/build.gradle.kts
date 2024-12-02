@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
-
 }
 
 android {
@@ -49,7 +48,12 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
-    
+
+    //TensorFlow Lite
+    implementation(libs.tensorflow.lite.support.v044)
+    implementation(libs.tensorflow.lite.metadata.v044)
+    implementation(libs.tensorflow.lite.task.vision)
+
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -60,11 +64,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.15.1")
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.fragment.ktx)
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
-
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -78,9 +78,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 }

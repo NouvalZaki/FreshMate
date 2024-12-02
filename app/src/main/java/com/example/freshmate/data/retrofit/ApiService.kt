@@ -14,6 +14,6 @@ val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET("https://mocki.io/v1/3eac5662-9f36-48be-9905-a836808deb49")
+    @GET("3eac5662-9f36-48be-9905-a836808deb49")
     suspend fun getFruits(): Response<FruitListResponse>
 }
