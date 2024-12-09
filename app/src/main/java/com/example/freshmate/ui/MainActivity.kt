@@ -8,20 +8,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.freshmate.R
 import com.example.freshmate.databinding.ActivityMainBinding
 import com.example.freshmate.ui.camera.CameraActivity
-import com.example.freshmate.ui.fruitList.FruitListFragment
-import com.example.freshmate.ui.home.HomeFragment
-import com.example.freshmate.ui.setting.SettingFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
 //        val homeFragment = HomeFragment()
 //        val fruitListFragment = FruitListFragment()
-//        val settingsFragment = SettingFragment()
+//        val settingsFragment = TutorialFragment()
 //
 //        makeCurrentFragment(homeFragment)
 //

@@ -18,7 +18,6 @@
         app:navGraph="@navigation/mobile_navigation"
         app:defaultNavHost="true"/>
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             app:itemActiveIndicatorStyle="@android:color/transparent"
@@ -31,8 +30,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_nav_menu"
             app:labelVisibilityMode="unlabeled"/>
-
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:foreground="@drawable/bounding_frame_home"

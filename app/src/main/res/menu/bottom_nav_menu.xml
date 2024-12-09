@@ -21,7 +21,7 @@
         android:title="Diseases" />
 
     <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/setting"
-        android:title="Settings" />
+        android:id="@+id/navigation_tutorial"
+        android:icon="@drawable/ic_openbook"
+        android:title="Tutorial" />
 </menu>

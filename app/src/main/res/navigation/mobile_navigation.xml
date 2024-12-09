@@ -21,8 +21,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/navigation_settings"
-        android:name="com.example.freshmate.ui.setting.SettingFragment"
+        android:id="@+id/navigation_tutorial"
+        android:name="com.example.freshmate.ui.tutorial.TutorialFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_tutorial" />
 </navigation>

@@ -16,7 +16,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://mocki.io/v1/\"")
+        buildConfigField("String", "BASE_URL", "")
+        buildConfigField("String", "API_KEY", "")
     }
 
     buildTypes {
@@ -43,6 +44,17 @@ android {
 
 dependencies {
 
+    //CircularProgressBar
+    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
+
+    //u crop
+    implementation("com.github.yalantis:ucrop:2.2.8")
+
+    //BlobBackground
+    implementation(libs.blobbackgroundlayout)
+
+    //Dotlottie
+    implementation(libs.dotlottie.android)
 
     //CameraX
     implementation(libs.androidx.camera.camera2)
@@ -61,6 +73,7 @@ dependencies {
 
     //Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.ktx)
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.15.1")

@@ -3,20 +3,12 @@ package com.example.freshmate.ui.fruitList
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.freshmate.R
 import com.example.freshmate.data.helper.FruitAdapter
-import com.example.freshmate.data.response.DataFruit
-import com.example.freshmate.data.retrofit.ApiConfig
 import com.example.freshmate.databinding.ActivityDetailFruitListBinding
 
 class DetailActivityFruitList : AppCompatActivity() {
@@ -27,6 +19,12 @@ class DetailActivityFruitList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailFruitListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // Enable the back button
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed() // Handle back button press
+        }
 
         val detailFruitListViewModel: DetailActivityListViewModel by viewModels()
 

@@ -23,7 +23,6 @@
                     app:layout_constraintDimensionRatio="4:3"
                     app:scaleType="fitCenter" />
 
-
                 <ImageView
                     android:id="@+id/squareVector"
                     android:layout_width="320dp"
@@ -32,8 +31,6 @@
                     android:layout_gravity="center"/>
 
         </FrameLayout>
-
-
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/container1"
@@ -105,12 +102,35 @@
             android:id="@+id/captureImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:src="@drawable/ic_camera"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/camera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/flash"
+            app:layout_constraintStart_toEndOf="@+id/galeryImage"
+            app:maxImageSize="40dp" />
+
+
+        <ImageButton
+            android:id="@+id/galeryImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginBottom="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_galery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_flash0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:maxImageSize="40dp" />
+            android:layout_marginEnd="55dp"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
