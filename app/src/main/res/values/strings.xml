@@ -8,6 +8,17 @@
     <string name="fruit_list_pict">Image</string>
     <string name="fruit_name">Fruit Name</string>
     <string name="description">Description</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="analyze">Analyze Photo</string>
+    <string name="retake_photo">Retake</string>
+    <string name="image_classifier_failed">Capture Correct Fruit Image</string>
+    <string name="diseases_fruit_home">Diseases Fruit</string>
+    <string name="fruit_list_home">Fruit List</string>
+    <string name="view_all">View All</string>
+    <string name="empty_image_warning">Tidak ada foto yang tersedia</string>
+    <string name="disease_name">Disease Name</string>
+    <string name="disease_description">Disease Description</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

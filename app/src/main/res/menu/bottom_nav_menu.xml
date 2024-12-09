@@ -3,24 +3,25 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/navigation_title_home" />
+        android:icon="@drawable/home_1_svgrepo_com"
+        android:title="Home" />
 
     <item
         android:id="@+id/navigation_fruit"
-        android:icon="@drawable/fruits"
-        android:title="@string/navigation_title_fruit"/>
+        android:icon="@drawable/ic_fruit"
+        android:title="Fruit" />
 
     <item
+        android:enabled="false"
         android:title=""/>
 
     <item
         android:id="@+id/navigation_diagnose"
-        android:icon="@drawable/diagnosa"
-        android:title="@string/navigation_title_diagnose"/>
+        android:icon="@drawable/ic_diagnose"
+        android:title="Diseases" />
 
     <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/setting"
-        android:title="@string/navigation_title_setting"/>
+        android:id="@+id/navigation_tutorial"
+        android:icon="@drawable/ic_openbook"
+        android:title="Tutorial" />
 </menu>
