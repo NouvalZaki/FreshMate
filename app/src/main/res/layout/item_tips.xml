@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:text="Description"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"/>
+    <TextView
+        android:id="@+id/textCaution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:text="Caution"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"/>
+
+    <ImageView
+        android:id="@+id/imageTip"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="Tip Image"
+        android:scaleType="centerCrop" />
+
+</LinearLayout>

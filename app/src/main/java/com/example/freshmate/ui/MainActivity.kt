@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.freshmate.R
 import com.example.freshmate.databinding.ActivityMainBinding
 import com.example.freshmate.ui.camera.CameraActivity
+import com.example.freshmate.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,20 +50,6 @@ class MainActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-//        val homeFragment = HomeFragment()
-//        val fruitListFragment = FruitListFragment()
-//        val settingsFragment = TutorialFragment()
-//
-//        makeCurrentFragment(homeFragment)
-//
-//        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnNavigationItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.navigation_home -> makeCurrentFragment(homeFragment)
-//                R.id.navigation_fruit -> makeCurrentFragment(fruitListFragment)
-//                R.id.navigation_settings -> makeCurrentFragment(settingsFragment)
-//            }
-//            true
-//        }
         binding.fabCamera.setOnClickListener {
             Intent(this, CameraActivity::class.java).also {
                 startActivity(it)
@@ -77,13 +64,6 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
     }
-
-
-//    private fun makeCurrentFragment(fragment: Fragment) =
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.fragment_wrapper, fragment)
-//            commit()
-//        }
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA

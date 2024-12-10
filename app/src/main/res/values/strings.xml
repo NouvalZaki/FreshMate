@@ -20,5 +20,6 @@
     <string name="empty_image_warning">Tidak ada foto yang tersedia</string>
     <string name="disease_name">Disease Name</string>
     <string name="disease_description">Disease Description</string>
+    <string name="ripe">Matang</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

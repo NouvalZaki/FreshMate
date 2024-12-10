@@ -6,17 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.freshmate.data.response.DataFruit
 import com.example.freshmate.databinding.FruitListCardBinding
 import com.bumptech.glide.Glide
+import com.example.freshmate.databinding.HomePreviewCardBinding
 
-class FruitAdapter(
-    private var listFruits: List<DataFruit> = listOf()
-) : RecyclerView.Adapter<FruitAdapter.EventViewHolder>() {
-
+class FruitAdapter(private var listFruits: List<DataFruit> = listOf()) : RecyclerView.Adapter<FruitAdapter.EventViewHolder>() {
     private var onItemClickCallback: ((Int) -> Unit)? = null  // Change to Int since id is Int
 
     // ViewHolder class to hold item views
     inner class EventViewHolder(private val binding: FruitListCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(fruit: DataFruit) {
             // Set data to UI components
             binding.fruitName.text = fruit.fruitName
@@ -27,13 +24,12 @@ class FruitAdapter(
 
             // Handle item click
             binding.cardMantap.setOnClickListener {
-                fruit.id?.let { id ->
+                fruit.id.let { id ->
                     onItemClickCallback?.invoke(id)  // Pass id as Int
                 }
             }
         }
     }
-
     // Define the callback for item clicks
     fun setOnItemClickCallback(callback: (Int) -> Unit) {  // Change to (Int) callback
         this.onItemClickCallback = callback
