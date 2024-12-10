@@ -34,6 +34,7 @@ import com.example.freshmate.data.response.ImageUploadResponse
 import com.example.freshmate.data.retrofit.ApiConfig
 import com.example.freshmate.databinding.ActivityCameraBinding
 import com.example.freshmate.ui.analyze.DetailAnalyzeActivity
+import com.example.freshmate.ui.home.HomeFragment
 import com.example.freshmate.util.CameraViewModelFactory
 import com.example.freshmate.util.createCustomTempFile
 import com.example.freshmate.util.reduceFileImage
@@ -170,6 +171,12 @@ class CameraActivity : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        finish()
+    }
+
     private fun takePhoto() {
         val imageCapture = imageCapture ?: return
         val photoFile = createCustomTempFile(application)
@@ -214,7 +221,6 @@ class CameraActivity : AppCompatActivity() {
         cameraViewModel.imageUri.value?.let {
             val imageFile = uriToFile(it, this)
             Log.d("Image File", "showImage: ${imageFile.path}")
-            showLoading(true)
 
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
             val multipartBody = MultipartBody.Part.createFormData(
@@ -235,7 +241,7 @@ class CameraActivity : AppCompatActivity() {
                     )
                     showLoading(false)
                     if (response.message == "Gambar kurang jelas, hasil prediksi mungkin tidak akurat") {
-                        showToast("Gambar kurang jelas, hasil prediksi mungkin tidak akurat")
+                        showToast("Gambar tidak sesuai, Silahkan Masukkan Gambar Buah")
                         Log.d("Failed", "Failed")
                     } else{
                         this@CameraActivity.runOnUiThread { moveToResult(successResponse, it) }
@@ -271,6 +277,7 @@ class CameraActivity : AppCompatActivity() {
     private fun retakePhoto() {
         cameraViewModel.imageUri.value = null
         updateVisibility(false)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
         startCamera()
     }
 
@@ -292,7 +299,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     private fun cropImageToSquare(photoFile: File, callback: (File) -> Unit) {

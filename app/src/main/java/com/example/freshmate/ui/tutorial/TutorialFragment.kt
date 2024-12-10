@@ -5,56 +5,62 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.freshmate.R
+import com.example.freshmate.data.helper.TipsAdapter
+import com.example.freshmate.data.response.Tips
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TutorialFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TutorialFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var tipsAdapter: TipsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutorial, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_tutorial, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TutorialFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TutorialFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        recyclerView = view.findViewById(R.id.recyclerViewTips)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val tipsList = listOf(
+            Tips(
+                "Pastikan Pencahayaan Bagus",
+                "Posisikan buah di tempat yang terang, seperti di dekat jendela atau di bawah cahaya lampu.",
+                "Bayangan gelap atau pencahayaan redup.",
+                R.drawable.cahaya
+            ),
+            Tips(
+                "Pastikan Buah Terlihat Penuh dalam Frame",
+                "Pastikan seluruh bagian buah masuk ke dalam layar kamera.",
+                "Hanya sebagian buah yang terlihat atau gambar terpotong.",
+                R.drawable.terpotong
+            ),
+            Tips(
+                "Jangan Terlalu Dekat atau Terlalu Jauh",
+                "Ambil jarak yang tepat sehingga buah terlihat jelas dan tidak blur.",
+                "Kamera terlalu dekat (blur) atau terlalu jauh (tidak jelas).",
+                R.drawable.jauh
+            ),
+            Tips(
+                "Gunakan Latar Belakang Netral",
+                "Pilih latar belakang polos atau sederhana agar fokus tetap pada buah.",
+                "Latar yang ramai atau warna yang mirip dengan buah.",
+                R.drawable.background
+            ),
+            Tips(
+                "Pastikan Kamera Stabil",
+                "Pegang ponsel dengan stabil atau gunakan tripod kecil jika perlu.",
+                "Gambar yang goyang karena tangan tidak stabil.",
+                R.drawable.blurr
+            )
+        )
+
+        tipsAdapter = TipsAdapter(tipsList)
+        recyclerView.adapter = tipsAdapter
+
+        return view
     }
 }

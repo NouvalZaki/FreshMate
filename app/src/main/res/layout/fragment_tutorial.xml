@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/fragment_tutorial"
     android:layout_height="match_parent"
-    tools:context=".ui.tutorial.TutorialFragment">
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tips Untuk Analysis Gambar"
+        android:paddingTop="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/nav_bottom"/>
+</LinearLayout>

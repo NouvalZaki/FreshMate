@@ -20,6 +20,7 @@ import com.example.freshmate.data.response.ImageUploadResponse
 import com.example.freshmate.databinding.ActivityDetailAnalyzeBinding
 import com.example.freshmate.ui.MainActivity
 import com.example.freshmate.ui.camera.CameraActivity
+import com.example.freshmate.ui.home.HomeFragment
 import com.example.freshmate.util.getBitmap
 import com.google.gson.Gson
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
@@ -43,33 +44,58 @@ class DetailAnalyzeActivity : AppCompatActivity() {
 
 
         analyzeResponse?.let {
-            binding.tvResult.text = it.ripeness
-            binding.tvFruit.text = it.fruitType
+            if (it.ripeness == "ripe") {
+                binding.tvResult.text = "Matang"
+            } else if (it.ripeness == "unripe") {
+                binding.tvResult.text = "Belum Matang"
+            }else {
+                binding.tvResult.text = "Busuk"
+            }
+
+            if (it.fruitType == "Apple") {
+                binding.tvFruit.text = "Buah Apel"
+            } else if (it.fruitType == "Banana") {
+                binding.tvFruit.text = "Buah Pisang"
+            } else if (it.fruitType == "Orange") {
+                binding.tvFruit.text = "Buah Jeruk"
+            } else if (it.fruitType == "Pineapple") {
+                binding.tvFruit.text = "Buah Nanas"
+            } else if (it.fruitType == "DragonFruit") {
+                binding.tvFruit.text = "Buah Naga"
+            } else if (it.fruitType == "Grape") {
+                binding.tvFruit.text = "Buah Anggur"
+            } else if (it.fruitType == "Guava") {
+                binding.tvFruit.text = "Jambu Biji"
+            } else if (it.fruitType == "Papaya") {
+                binding.tvFruit.text = "Buah Pepaya"
+            } else if (it.fruitType == "Pomegranate") {
+                binding.tvFruit.text = "Buah Delima"
+            } else if (it.fruitType == "Strawberry") {
+                binding.tvFruit.text = "Buah Strawberry"
+            }
                 binding.circularBar.apply {
                     progress = it.confidence!!
-                    setProgressWithAnimation( it.confidence.toFloat(), 10000, null,5000)
+                    setProgressWithAnimation( progress, 1000)
                     progressMax = 1f
-                    if (it.confidence.toInt() == 1) {
+                    if (progress >= 0.7f && progress <= 1f ) {
                         progressBarColor = Color.GREEN
                         progressBarColorDirection = CircularProgressBar.GradientDirection.RIGHT_TO_LEFT
                         progressDirection = CircularProgressBar.ProgressDirection.TO_RIGHT
-                        binding.tvConfident.text = "100%"
+                        binding.tvConfident.text = "${it.confidence * 100}%"
                     }
-                    else if (it.confidence <= 0.7f && it.confidence >= 0.2f ) {
+                    else if (progress <= 0.7f && progress >= 0.2f ) {
                         progressBarColor = Color.YELLOW
                         progressDirection = CircularProgressBar.ProgressDirection.TO_RIGHT
                         progressBarColorDirection = CircularProgressBar.GradientDirection.RIGHT_TO_LEFT
                         binding.tvConfident.text = "${it.confidence * 100}%"
-                    }else if (it.confidence <= 0.2f ) {
+                    }else if (progress <= 0.2f ) {
                         progressBarColor = Color.RED
                         progressDirection = CircularProgressBar.ProgressDirection.TO_RIGHT
                         progressBarColorDirection = CircularProgressBar.GradientDirection.RIGHT_TO_LEFT
                         binding.tvConfident.text = "${it.confidence * 100}%"
                     }
                 }
-
             }
-
         imageUri?.let {
             binding.imageResult.setImageURI(it)
         }
@@ -81,7 +107,17 @@ class DetailAnalyzeActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
             }
         }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        startActivity(intent)
+        finish() //
     }
+}

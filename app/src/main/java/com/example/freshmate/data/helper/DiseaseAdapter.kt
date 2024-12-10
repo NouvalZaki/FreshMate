@@ -16,7 +16,6 @@ class DiseaseAdapter (
     // ViewHolder class to hold item views
     inner class DiseaseViewHolder(private val binding: DiseaseCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(disease: DataDisease) {
             // Set data to UI components
             binding.diseaseTitle.text = disease.diseasesName
